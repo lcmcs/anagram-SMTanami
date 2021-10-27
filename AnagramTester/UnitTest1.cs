@@ -1,8 +1,8 @@
+using AnagramFinderNS;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using AnagramFinderNS;
-using FluentAssertions;
 
 namespace AnagramTester
 {
@@ -19,7 +19,7 @@ namespace AnagramTester
 
             var actual = Assert.ThrowsException<ArgumentException>(() =>
                 af.FindAllAnagramsWithDuplicateLetters(null));
-
+            
             Assert.AreEqual(actual.Message, "Param 'wordList' is null or empty");
         }
         //Test 2
@@ -91,7 +91,7 @@ namespace AnagramTester
         {
             af = new AnagramFinder();
             List<String> list = new List<String> { "bee", "ebbc" };
-            Assert.AreEqual(1, af.FindAllAnagramsWithDuplicateLetters(list).Count);
+            Assert.AreEqual(0, af.FindAllAnagramsWithDuplicateLetters(list).Count);
         }
 
         //Test 8
